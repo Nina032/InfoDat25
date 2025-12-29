@@ -1,7 +1,7 @@
 ﻿using PublisherData;
 using PublisherDomain;
 
-using(PubContext context = new PubContext())
+using (PubContext context = new PubContext())
 {
     context.Database.EnsureCreated();
 }
@@ -9,7 +9,16 @@ using(PubContext context = new PubContext())
 GetAuthors(); //Hämtar alla authors
 Console.WriteLine("____________________________________________________");
 GetAuthor(); //Hämtar en author enlight filter
+Console.WriteLine("____________________________________________________");
+AddAuthor();
 
+void AddAuthor()
+{
+    var author = new Author { FirstName = "Anna", LastName = "Ivarsson" };
+    using var context = new PubContext();
+    context.Authors.Add(author); //Skapar SQL query som ska göra insert into
+    context.SaveChanges();
+}
 
 void GetAuthors()
 {

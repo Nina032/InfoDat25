@@ -15,7 +15,6 @@ namespace PublisherData
             optionsBuilder.UseSqlServer(
                 "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=PubDatabase;Integrated Security=True;");
         }
-
     }
     
     

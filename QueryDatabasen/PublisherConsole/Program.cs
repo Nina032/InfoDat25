@@ -10,11 +10,33 @@ using PubContext _context = new();
 //SkipAndTakeAuthors();
 //SortAuthors();
 //QueryAggregate();
-InsertAuthor();
+//InsertAuthor();
+//RetrieveAndUpdateAuthor();
+RetrieveAndUpdateAuthorMultipleAuthors();
+
+void RetrieveAndUpdateAuthorMultipleAuthors()
+{
+    var kicanovicAuthors = _context.Authors.Where(a => a.LastName == "Kicanovic").ToList();
+    foreach (var k in kicanovicAuthors)
+    {
+        k.LastName = "Radmilovic";
+    }
+
+    _context.SaveChanges();
+}
+
+void RetrieveAndUpdateAuthor()
+{
+    var author = _context.Authors.FirstOrDefault(a => a.FirstName == "Nevena" && a.LastName == "Kicanovic");
+
+    author.FirstName = "Nina";
+
+    _context.SaveChanges();
+}
 
 void InsertAuthor()
 {
-    var author = new Author { FirstName = "Frank", LastName = "Hofman" };
+    var author = new Author { FirstName = "Anna", LastName = "Hofman" };
     _context.Authors.Add(author);
 
     _context.SaveChanges();

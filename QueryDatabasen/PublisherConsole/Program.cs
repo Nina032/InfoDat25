@@ -8,7 +8,24 @@ using PubContext _context = new();
 //FindIt();
 //AddSomeMoreAuthors();
 //SkipAndTakeAuthors();
-SortAuthors();
+//SortAuthors();
+QueryAggregate();
+
+void QueryAggregate()
+{
+    var authorsDesc = _context.Authors.OrderByDescending(a => a.FirstName).ToList();
+
+    foreach (var a in authorsDesc)
+    {
+        Console.WriteLine($"{a.FirstName} {a.LastName}");
+    }
+    Console.WriteLine("____________________________________________");
+    var author = _context.Authors.OrderByDescending(a => a.FirstName)
+        .FirstOrDefault(a => a.LastName == "Kicanovic");
+
+    Console.WriteLine($"{author.FirstName} {author.LastName}");
+
+}
 
 void SortAuthors()
 {

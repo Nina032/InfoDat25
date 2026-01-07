@@ -29,6 +29,22 @@ void InsertMultipleAuthors()
 
     _context.SaveChanges();
 }
+//InsertMultipleAuthors med Array, ger samma resultat
+void InsertMultipleAuthorsArray()
+{
+    var newAuthors = new Author[]
+    {
+        new Author { FirstName="Rita", LastName="Olsson"},
+        new Author { FirstName="Sofia", LastName="Smith"},
+        new Author { FirstName = "Ursula", LastName = "Levin" },
+        new Author { FirstName = "Harry", LastName = "Howey" },
+        new Author { FirstName = "Isabelle", LastName = "Allie" }
+    };
+
+    _context.Authors.AddRange(newAuthors);
+
+    _context.SaveChanges();
+}
 
 void DeleteAnAuthor()
 {

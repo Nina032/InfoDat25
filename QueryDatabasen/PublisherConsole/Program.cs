@@ -16,11 +16,15 @@ RetrieveAndUpdateAuthorMultipleAuthors();
 
 void RetrieveAndUpdateAuthorMultipleAuthors()
 {
-    var kicanovicAuthors = _context.Authors.Where(a => a.LastName == "Radmilovic").ToList();
+    var kicanovicAuthors = _context.Authors.Where(a => a.LastName == "Hofman").ToList();
     foreach (var k in kicanovicAuthors)
     {
-        k.LastName = "Kicanovic";
+        k.LastName = "Efternamn";
     }
+
+    Console.WriteLine($"Before:\r\n {_context.ChangeTracker.DebugView.ShortView}");
+    _context.ChangeTracker.DetectChanges();
+    Console.WriteLine($"After:\r\n {_context.ChangeTracker.DebugView.ShortView}");
 
     _context.SaveChanges();
 }

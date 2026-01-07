@@ -14,7 +14,21 @@ using PubContext _context = new();
 //RetrieveAndUpdateAuthor();
 //RetrieveAndUpdateAuthorMultipleAuthors();
 //VariousOperations();
-DeleteAnAuthor();
+//DeleteAnAuthor();
+InsertMultipleAuthors();
+
+void InsertMultipleAuthors()
+{
+    _context.Authors.AddRange(
+        new Author { FirstName="Rita", LastName="Olsson"},
+        new Author { FirstName="Sofia", LastName="Smith"},
+        new Author { FirstName = "Ursula", LastName = "Levin" },
+        new Author { FirstName = "Harry", LastName = "Howey" },
+        new Author { FirstName = "Isabelle", LastName = "Allie" }
+    );
+
+    _context.SaveChanges();
+}
 
 void DeleteAnAuthor()
 {

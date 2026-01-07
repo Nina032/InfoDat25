@@ -13,7 +13,19 @@ using PubContext _context = new();
 //InsertAuthor();
 //RetrieveAndUpdateAuthor();
 //RetrieveAndUpdateAuthorMultipleAuthors();
-VariousOperations();
+//VariousOperations();
+DeleteAnAuthor();
+
+void DeleteAnAuthor()
+{
+    var extraAuthor = _context.Authors.Find(9);
+    if (extraAuthor != null)
+    {
+        _context.Authors.Remove(extraAuthor);
+
+        _context.SaveChanges();
+    }
+}
 
 void VariousOperations()
 {

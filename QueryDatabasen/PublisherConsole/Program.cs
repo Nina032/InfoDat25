@@ -16,10 +16,10 @@ RetrieveAndUpdateAuthorMultipleAuthors();
 
 void RetrieveAndUpdateAuthorMultipleAuthors()
 {
-    var kicanovicAuthors = _context.Authors.Where(a => a.LastName == "Kicanovic").ToList();
+    var kicanovicAuthors = _context.Authors.Where(a => a.LastName == "Radmilovic").ToList();
     foreach (var k in kicanovicAuthors)
     {
-        k.LastName = "Radmilovic";
+        k.LastName = "Kicanovic";
     }
 
     _context.SaveChanges();

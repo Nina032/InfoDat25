@@ -9,7 +9,16 @@ using PubContext _context = new();
 //AddSomeMoreAuthors();
 //SkipAndTakeAuthors();
 //SortAuthors();
-QueryAggregate();
+//QueryAggregate();
+InsertAuthor();
+
+void InsertAuthor()
+{
+    var author = new Author { FirstName = "Frank", LastName = "Hofman" };
+    _context.Authors.Add(author);
+
+    _context.SaveChanges();
+}
 
 void QueryAggregate()
 {

@@ -12,7 +12,19 @@ using PubContext _context = new();
 //QueryAggregate();
 //InsertAuthor();
 //RetrieveAndUpdateAuthor();
-RetrieveAndUpdateAuthorMultipleAuthors();
+//RetrieveAndUpdateAuthorMultipleAuthors();
+VariousOperations();
+
+void VariousOperations()
+{
+    var author = _context.Authors.Find(3);
+    author.LastName = "NewIvarsson";
+
+    var newauthor = new Author { LastName = "Alvsson", FirstName = "Dan" };
+    _context.Authors.Add(newauthor);
+
+    _context.SaveChanges();
+}
 
 void RetrieveAndUpdateAuthorMultipleAuthors()
 {

@@ -15,7 +15,7 @@ using (PubContext context = new PubContext())
 
 //AddAuthorsWithBook();
 
-GetAuthorsWithBooks();
+//GetAuthorsWithBooks();
 
 void GetAuthorsWithBooks()
 {
